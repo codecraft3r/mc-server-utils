@@ -16,6 +16,7 @@ version=$(grep -E '^version\s*=' pack.toml | awk -F'=' '{print $2}' | tr -d ' "'
 minecraft_version=$(grep -E '^minecraft\s*=' pack.toml | awk -F'=' '{print $2}' | tr -d ' "')
 fabric_version=$(grep -E '^fabric\s*=' pack.toml | awk -F'=' '{print $2}' | tr -d ' "')
 forge_version=$(grep -E '^forge\s*=' pack.toml | awk -F'=' '{print $2}' | tr -d ' "')
+neoforge_version=$(grep -E '^neoforge\s*=' pack.toml | awk -F'=' '{print $2}' | tr -d ' "')
 liteloader_version=$(grep -E '^liteloader\s*=' pack.toml | awk -F'=' '{print $2}' | tr -d ' "')
 quilt_version=$(grep -E '^quilt\s*=' pack.toml | awk -F'=' '{print $2}' | tr -d ' "')
 
@@ -28,6 +29,7 @@ echo "Creating .env file..."
   [[ -n "$minecraft_version" ]] && echo "VERSION=$minecraft_version"
   [[ -n "$fabric_version" ]] && echo "TYPE=FABRIC" && echo "FABRIC_LAUNCHER_VERSION=$fabric_version" && echo "FABRIC_LOADER_VERSION=$fabric_version"
   [[ -n "$forge_version" ]] && echo "TYPE=FORGE" && echo "FORGE_VERSION=$forge_version"
+  [[ -n "$neoforge_version" ]] && echo "TYPE=NEOFORGE" && echo "NEOFORGE_VERSION=$neoforge_version"
   [[ -n "$quilt_version" ]] && echo "TYPE=QUILT" && echo "QUILT_LAUNCHER_VERSION=$quilt_version" && echo "QUILT_LOADER_VERSION=$quilt_version"
 } > .env
 
